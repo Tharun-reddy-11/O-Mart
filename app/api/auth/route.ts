@@ -40,11 +40,13 @@ export const authOptions: NextAuthOptions = {
       return token;
     },
     async session({ session, token }: { session: Session; token: JWT }) {
-      // Type assertion used to let TypeScript know that session.user has an "id" property.
+      // Use type assertion so that TypeScript recognizes "id" on session.user
       (session.user as { id: string; email?: string; name?: string }).id = token.id as string;
       return session;
     }
   }
 };
 
-export default NextAuth(authOptions);
+const handler = NextAuth(authOptions);
+
+export { handler as GET, handler as POST };
