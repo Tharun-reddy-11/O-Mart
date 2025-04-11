@@ -1,0 +1,11 @@
+api/
+  auth/
+    route.ts
+  products/
+    route.ts
+  orders/
+    route.ts
+  payment/
+    route.ts
+  upload/
+    route.ts
